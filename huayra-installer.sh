@@ -27,9 +27,9 @@
 
 if [ "$(whoami)" != "root" ]; then
 	echo "!!! Error: debe ejecutar este script como root"
-	echo "*** Ejecutando sudo \
-$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P )/$(basename "${0}")..."
-	sudo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P )/$(basename "${0}")"
+	script="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P )/$(basename "${0}")"
+	echo "*** Ejecutando sudo ${script}..."
+	sudo "${script}"
 	exit $?
 fi
 
